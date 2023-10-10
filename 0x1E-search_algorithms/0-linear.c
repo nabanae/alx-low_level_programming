@@ -14,28 +14,17 @@
   */
 int linear_search(int *array, size_t size, int value)
 {
-	int i = 0, start = 0, end = (int)size - 1, mid = 0;
+	size_t i;
 
-	if (!array)
+	if (array == NULL)
 		return (-1);
-	while (end >= start)
+
+	for (i = 0; i < size; i++)
 	{
-		printf("Searching in array: ");
-		for (i = start; i <= end; i++)
-		{
-			printf("%i", array[i]);
-			if (i != end)
-				printf(", ");
-			else
-				printf("\n");
-		}
-		mid = (start + end) / 2;
-		if (array[mid] == value)
-			return (mid);
-		if (value < array[mid])
-			end = mid - 1;
-		else
-			start = mid + 1;
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
 	}
+
 	return (-1);
 }
